@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review : Les Irremplaçables - Cynthia Fleury</title>
+    <style>
+        :root {
+            --bg: #ffffff;
+            --text: #000000;
+            --accent: #E63946;
+            --gray: #f9f9f9;
+            --border: #000000;
+            --star: #FFD700; /* Jaune doré pour les étoiles */
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10px 20px; /* Réduit pour mobile */
+        }
+
+        /* Header style Magazine */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--border);
+            padding: 20px 0;
+            margin-bottom: 40px;
+        }
+
+        .brand {
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: clamp(10px, 3vw, 14px);
+        }
+
+        .stars {
+            color: var(--star);
+            font-size: 22px;
+            letter-spacing: 2px;
+        }
+
+        /* Hero Section Responsive */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+
+        .cover-box {
+            background-color: var(--gray);
+            padding: 30px;
+            display: flex;
+            justify-content: center;
+            border: 1px solid #eee;
+        }
+
+        .cover-box img {
+            width: 100%;
+            max-width: 280px;
+            height: auto;
+            box-shadow: 12px 12px 0px var(--border);
+        }
+
+        .hero-text h1 {
+            font-size: clamp(35px, 10vw, 70px);
+            line-height: 0.85;
+            margin: 0 0 20px 0;
+            text-transform: uppercase;
+            font-weight: 900;
+        }
+
+        .hero-text p { font-size: 1.1rem; max-width: 500px; color: #333; }
+
+        /* Grille de contenu interactive */
+        .analysis-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0;
+            border: 1px solid var(--border);
+        }
+
+        .grid-item {
+            padding: 30px;
+            border: 1px solid var(--border);
+            cursor: pointer;
+            transition: background 0.3s ease;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            word-wrap: break-word; /* Évite le débordement de texte */
+        }
+
+        .grid-item:hover { background-color: var(--gray); }
+
+        .item-number {
+            font-weight: bold;
+            font-size: 13px;
+            margin-bottom: 15px;
+            display: block;
+            text-transform: uppercase;
+            opacity: 0.6;
+        }
+
+        .grid-item h2 {
+            font-size: clamp(18px, 4vw, 24px);
+            margin: 0 0 10px 0;
+            text-transform: uppercase;
+            font-weight: 900;
+            line-height: 1.1;
+        }
+
+        .click-hint {
+            font-size: 11px;
+            text-transform: uppercase;
+            font-weight: bold;
+            text-decoration: underline;
+            margin-top: auto;
+            padding-top: 20px;
+        }
+
+        /* Texte révélé */
+        .content-hidden {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 15px;
+            color: #444;
+            text-align: justify;
+        }
+
+        .grid-item.active .content-hidden {
+            max-height: 2000px; /* Augmenté pour les textes longs */
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+        }
+
+        .grid-item.active { background-color: #fff; cursor: default; }
+        .grid-item.active h2 { color: var(--accent); }
+        .grid-item.active .click-hint { display: none; }
+
+        /* Responsive Mobile */
+        @media (max-width: 850px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+                margin-bottom: 40px;
+            }
+            .cover-box { margin-bottom: 20px; }
+            .hero-text p { margin: 15px auto; }
+            .analysis-grid { grid-template-columns: 1fr; }
+
+            .grid-item { padding: 25px; }
+
+            header {
+                padding: 15px 0;
+            }
+        }
+
+        footer {
+            margin-top: 60px;
+            padding: 40px 10px;
+            text-align: center;
+            border-top: 2px solid #000;
+            font-size: 11px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="brand">Book Review // Alya Ayinde 2025</div>
+        <div class="stars">★★★☆☆</div>
+    </header>
+
+    <section class="hero">
+        <div class="cover-box">
+            <img src="Les-irremplacables.jpg" alt="Couverture Les Irremplaçables">
+        </div>
+        <div class="hero-text">
+            <h1>My Book<br>Review of:</h1>
+            <p><strong>Cynthia Fleury</strong> — <em>Les Irremplaçables</em></p>
+            <p>Une réflexion sur la singularité face au capitalisme, entre urgence démocratique et barrière académique.</p>
+            <p style="font-style: italic; font-size: 0.95rem;">On m’a demandé une fiche de lecture avec mon avis sincère sur ce livre ; en tant qu’informaticienne, quoi de mieux qu’un site pour rendre cette réflexion accessible et vivante ? Je vous laisse avec mes pensées. ;)</p>
+        </div>
+    </section>
+
+    <div class="analysis-grid">
+        <div class="grid-item" onclick="this.classList.toggle('active')">
+            <span class="item-number">01. Constat</span>
+            <h2>Critique de la performance</h2>
+            <div class="content-hidden">
+                Dans <em>Les Irremplaçables</em>, Cynthia Fleury critique une société dominée par la rentabilité et la productivité, où tout est mesuré et quantifié. L’humain y est réduit à ce qu’il produit, entraînant une perte de sens et une disparition de la singularité individuelle. Cette logique transforme les individus en ressources interchangeables et normalise leur épuisement.
+            </div>
+            <div class="click-hint">Lire l'analyse</div>
+        </div>
+
+        <div class="grid-item" onclick="this.classList.toggle('active')">
+            <span class="item-number">02. Débat</span>
+            <h2>Une notion discutable</h2>
+            <div class="content-hidden">
+                Pour Cynthia Fleury, les « irremplaçables » sont avant tout celles et ceux qui, par leur travail et leur engagement, participent activement au maintien du lien social et au fonctionnement de la société. Cette définition valorise les métiers du soin, de l’éducation ou de l’engagement citoyen, mais elle peut aussi, par contraste, laisser entendre que d’autres seraient implicitement remplaçables. C’est sur ce point que je suis plus réservée. Certes, certains emplois peuvent être qualifiés de <em>bullshit jobs</em>, mais les personnes qui les occupent subissent elles aussi les logiques du système : perte de sens, pression, épuisement, voire burn-out. La plupart cherchent simplement à se rendre utiles à leur échelle, dans un cadre qui leur est imposé. Il me semble donc difficile, voire injuste, de qualifier certains individus de « remplaçables », car ce n’est pas leur utilité qui est en cause, mais bien le fonctionnement du système économique et organisationnel qui dévalorise les individus et rend leur travail interchangeable.
+            </div>
+            <div class="click-hint">Lire l'analyse</div>
+        </div>
+
+        <div class="grid-item" onclick="this.classList.toggle('active')">
+            <span class="item-number"> 03. Désaccord</span>
+            <h2>Une écriture peu accessible</h2>
+            <div class="content-hidden">
+                Le style d’écriture de Cynthia Fleury constitue selon moi une limite importante de l’ouvrage. Alors que <em>Les Irremplaçables</em> se présente comme un texte d’alerte et de critique d’une société hyper-capitaliste, son écriture reste complexe, théorique et peu accessible. Or, cette société qu’elle dénonce a précisément été façonnée par des élites économiques et intellectuelles disposant d’un accès privilégié à l’éducation et au capital culturel. Ce sont donc surtout ces mêmes catégories sociales qui sont en mesure de lire et de comprendre pleinement son livre. À l’inverse, le public auquel l’ouvrage semble pourtant destiné — la classe moyenne, les travailleurs, les citoyens directement touchés par la pression de la performance et de la rentabilité — peut éprouver de réelles difficultés à s’approprier le contenu. Il existe ainsi un paradoxe entre le message critique porté par l’autrice et la forme choisie pour le transmettre.
+            </div>
+            <div class="click-hint">Lire l'analyse</div>
+        </div>
+
+        <div class="grid-item" onclick="this.classList.toggle('active')">
+            <span class="item-number">04. Accord</span>
+            <h2>Repenser la démocratie</h2>
+            <div class="content-hidden">
+                Un point du livre avec lequel je suis profondément d’accord concerne la nécessité de transformer la démocratie. Cynthia Fleury montre que la démocratie actuelle est fragilisée, vidée de son sens et souvent confisquée par des élites politiques et économiques. Cette analyse rejoint ma propre vision : aujourd’hui, la démocratie souffre parce que le peuple ne se l’approprie plus réellement. À l’image de la démocratie athénienne portée par Périclès, la participation citoyenne devrait être centrale et active, et non limitée à des moments électoraux ponctuels. Une démocratie vivante suppose des citoyens engagés, conscients de leur responsabilité collective et capables de prendre part aux décisions qui les concernent. Sans cette réappropriation populaire, la démocratie devient un simple cadre institutionnel déconnecté du vécu réel des individus.
+            </div>
+            <div class="click-hint">Lire l'analyse</div>
+        </div>
+    </div>
+
+    <footer>
+        PROJET DE MÉDIATION PHILOSOPHIQUE — RÉAPPROPRIATION DU DISCOURS CITOYEN
+    </footer>
+</div>
+
+</body>
+</html>
